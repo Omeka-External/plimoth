@@ -39,16 +39,53 @@ $sortHeadings = [
 ?>
 
 <?php if ($itemSetShow): ?>
-    <?php echo $this->pageTitle($itemSet->displayTitle(), 2); ?>
-    <h3><?php echo $translate('Item set'); ?></h3>
-    <div class="metadata">
-        <?php echo $itemSet->displayValues(); ?>
+    <div class="medium-4 cell">
+        <?php echo $this->pageTitle($itemSet->displayTitle(), 2); ?>
+        <p><?php echo $itemSet->value('dcterms:description'); ?></p>
     </div>
-    <div class="item-set-items">
+
+    <?php if ($thumbnail = $this->thumbnail($itemSet, 'medium')): ?>
+        <div class="resource-image medium-8 cell'; ?>">
+            <?php echo $itemSet->linkRaw($thumbnail, null, ['class' => 'thumbnail']); ?>
+        </div>
+    <?php endif; ?>
+    <div class="item-set-items medium-12 cell">
     <?php echo '<h3>' . $escape($translate('Items')) . '</h3>'; ?>
+    <?php $this->trigger('view.browse.before'); ?>
+    <ul class="resources <?php echo ($isGrid) ? 'resource-grid' : 'resource-list'; ?>">
+    <?php
+    foreach ($items as $item):
+        $heading = $headingTerm ? $item->value($headingTerm, ['default' => $translate('[Untitled]')]) : $item->displayTitle();
+        $body = $bodyTerm ? $item->value($bodyTerm) : $item->displayDescription();
+        $itemID = $item->id();
+    ?>  
+        <li class="item resource <?php echo ($isGrid) ? '' : 'media-object'; ?>">
+            <?php if ($thumbnail = $this->thumbnail($item, 'medium')): ?>
+            <div class="resource-image <?php echo ($isGrid) ? '' : 'media-object-section'; ?>">
+                <?php echo $this->thumbnail($item, 'square',['data-open' => 'item-' . $itemID . '']); ?>
+            </div>
+            
+            <div class="resource-meta reveal" id="item-<?php echo $itemID; ?>" data-reveal>
+                <h4><?php echo $item->link($heading); ?></h4>
+                <?php if($thumbnail): ?>
+                    <?php echo $item->linkRaw($thumbnail, null, ['class' => 'thumbnail']); ?>
+                <?php endif; ?>
+                <?php if ($body): ?>
+                <div class="description">
+                    <?php echo $body; ?>
+                    <?php echo $item->link('Click to see 3D object→'); ?>
+                </div>
+                <?php endif; ?>
+                <button class="close-button" data-close aria-label="Close modal" type="button">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <?php endif; ?>
+        </li>
+    <?php endforeach; ?>
+    </ul>
 <?php else: ?>
     <?php echo $this->pageTitle($translate('Items'), 2); ?>
-<?php endif; ?>
 
 <?php echo $this->searchFilters(); ?>
 <div class="browse-control-mobile">
@@ -88,6 +125,7 @@ foreach ($items as $item):
     </li>
 <?php endforeach; ?>
 </ul>
+<?php endif; ?>
 <?php echo ($itemSetShow) ? '</div>' : ''; ?>
 <?php $this->trigger('view.browse.after'); ?>
 

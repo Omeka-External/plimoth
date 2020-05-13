@@ -1,0 +1,40 @@
+@charset 'utf-8';
+
+@import 'globals-default';
+@import 'settings';
+@import 'foundation-core';
+@import 'omeka';
+
+//Layouts
+
+#blocks {
+    @include xy-grid;
+    align-content: flex-start;
+}
+
+#intro {
+    @include breakpoint(medium){
+        @include xy-cell(8);
+        @include xy-cell-offset(2);
+    }
+}
+
+.home-list {
+    @include breakpoint(medium){
+        @include xy-cell(6);
+    }
+    a {
+        float:left;
+        width:50%;
+    }
+    h2 a {
+        width:100%;
+    }
+}
+
+//General
+
+.close-button {
+    font-size:1rem;
+}
+

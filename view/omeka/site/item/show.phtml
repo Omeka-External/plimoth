@@ -12,27 +12,25 @@ $showLayout = $this->themeSetting('show_layout');
 <h3 class="label"><?php echo $translate('Item'); ?></h3>
 </div>
 
-<div class="grid-x">
+<div class="grid-x grid-padding-x">
   
+<div class="media-embed medium-9 cell">
 <?php if ($embedMedia && $itemMedia): ?>
-<div class="media-embeds">
+
 <?php foreach ($itemMedia as $media):
     echo $media->render();
 endforeach;
 ?>
+<?php echo $item->displayValues(); ?>
+
 </div>
-<?php endif; ?>
-<?php if (!$embedMedia && $itemMedia): ?>
-<div class="media-list">
-    <?php foreach ($itemMedia as $media): ?>
-        <?php echo $media->linkPretty(); ?>
-    <?php endforeach; ?>
-</div>
+
+
 <?php endif; ?>
 
-<div id="resource-values" class="<?php echo ($showLayout == 'inline') ? 'inline' : 'stack'; ?>">
+
+<div class="<?php echo ($showLayout == 'inline') ? 'inline' : 'stack'; ?> medium-3 cell">
     <?php $this->trigger('view.show.before'); ?>
-    <?php echo $item->displayValues(); ?>
     <?php $itemSets = $item->itemSets(); ?>
     <dl>
     <?php if (count($itemSets) > 0): ?>
@@ -46,6 +44,13 @@ endforeach;
     </div>
     <?php endif; ?>
     </dl>
+    <?php $relatedItems = $item->value('dcterms:relation',['all' => true]); ?>
+    <?php if ($relatedItems): ?>
+        <h3>Related Items</h3>
+        <?php foreach ($relatedItems as $relatedItem): ?>
+            <?php echo $relatedItem; ?>
+        <?php endforeach; ?>
+    <?php endif; ?>
     
     <?php
     $page = $this->params()->fromQuery('page', 1);
