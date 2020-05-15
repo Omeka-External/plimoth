@@ -44,11 +44,17 @@ endforeach;
     </div>
     <?php endif; ?>
     </dl>
-    <?php $relatedItems = $item->value('dcterms:relation',['all' => true]); ?>
-    <?php if ($relatedItems): ?>
+    <?php $relatedItemValues = $item->value('dcterms:relation',['all' => true]); ?>
+    <?php if ($relatedItemValues): ?>
         <h3>Related Items</h3>
-        <?php foreach ($relatedItems as $relatedItem): ?>
-            <?php echo $relatedItem; ?>
+        <?php $numRelatedItems = count($relatedItemValues); ?>
+        <?php $i = 0; ?>
+        <?php foreach ($relatedItemValues as $relatedItemValue): ?>
+            <?php $relatedItem =  $relatedItemValue->valueResource(); ?>
+            <?php echo $relatedItem->linkRaw($this->thumbnail($relatedItem, 'square')); ?>
+            <?php if(++$i !== $numRelatedItems): ?>
+                <hr>
+            <?php endif; ?>
         <?php endforeach; ?>
     <?php endif; ?>
     
