@@ -1,11 +1,45 @@
 @charset 'utf-8';
 
 @import 'globals-default';
+@import 'globals-plimoth';
 @import 'settings';
 @import 'foundation-core';
 @import 'omeka';
 
+//Type
+.resource-meta h2 {
+    line-height: 1;
+}
+
+//Color
+
+#wrap {
+    background-color: $secondary-color;
+}
+header, .top-bar, .top-bar ul {
+    background-color:$white;
+}
+
+#content {
+    background-color: $white;
+}
+
+footer {
+     background-color: $black;
+}
+
+.footer-content {
+    @include xy-grid-container;
+    padding: (2 * $global-padding) 0;
+}
 //Layouts
+header {
+    min-height:150px;
+}
+
+.top-bar {
+    padding:0.5rem 1rem;
+}
 
 #blocks {
     @include xy-grid;
@@ -33,8 +67,49 @@
 }
 
 //General
+button, [type="button"] {
+    background:$secondary-color;
+    border: 1px solid $primary-color;
+    color:$primary-color;
+    padding:0 0.5rem;
+}
 
 .close-button {
-    font-size:1rem;
+    font-size:2rem;
+}
+
+.close-button:hover {
+    color:$secondary-color;
+}
+
+//Navigation
+.top-bar-right ul {
+    width:100%;
+}
+
+.menu li a {
+    font-size:1.25rem;
+    letter-spacing: 2px;
+    font-weight:bold;
+    text-transform: uppercase;
+    color:$black;
+}
+
+.menu li a:hover {
+    background:$secondary-color;
+}
+
+.menu .active > a, .toc-block > ul .active > a, .toc-block ul ul .active > a {
+    background:inherit;
+    color:inherit;
+}
+
+body.theme .menu .active > a.themes, body.time-periods .menu .active > a.periods {
+    border-bottom:5px solid $primary-color;
+}
+
+.menu a.plimoth:after {
+    font-family: 'Font Awesome 5 Free';
+    content: "\f35d";
 }
 

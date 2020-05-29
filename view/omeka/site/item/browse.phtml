@@ -46,7 +46,7 @@ $sortHeadings = [
 
     <?php if ($thumbnail = $this->thumbnail($itemSet, 'medium')): ?>
         <div class="resource-image medium-8 cell'; ?>">
-            <?php echo $itemSet->linkRaw($thumbnail, null, ['class' => 'thumbnail']); ?>
+            <?php echo $this->thumbnail($itemSet, 'fullsize'); ?>
         </div>
     <?php endif; ?>
     <div class="item-set-items medium-12 cell">
@@ -125,10 +125,10 @@ foreach ($items as $item):
     </li>
 <?php endforeach; ?>
 </ul>
+<div class="browse-controls">
+    <?php echo $this->pagination(); ?>
+</div>
 <?php endif; ?>
 <?php echo ($itemSetShow) ? '</div>' : ''; ?>
 <?php $this->trigger('view.browse.after'); ?>
 
-<div class="browse-controls">
-    <?php echo $this->pagination(); ?>
-</div>

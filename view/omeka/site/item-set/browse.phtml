@@ -12,15 +12,12 @@ $bodyTerm = $this->siteSetting('browse_body_property_term');
 $this->htmlElement('body')->appendAttribute('class', 'item-set resource browse');
 ?>
 
-<div class="medium-10 cell">
-    <?php echo $this->pageTitle($translate('Item sets'), 2); ?>
-</div>
+
 
 <div class="browse-control-mobile">
 <button type="button" class="browse-toggle closed">Tools</button>
 </div>
 <div class="browse-controls closed">
-    <?php echo $this->pagination(); ?>
     <?php if (strpos($layoutSetting, 'toggle') !== false): ?>
     <div class="layout-toggle">
         <button type="button" aria-label="<?php echo $translate('Grid'); ?>" class="grid o-icon-grid" <?php echo $gridState; ?>></button>
@@ -51,4 +48,3 @@ foreach ($itemSets as $itemSet):
 <?php endforeach; ?>
 </ul>
 <?php $this->trigger('view.browse.after'); ?>
-<?php echo $this->pagination(); ?>

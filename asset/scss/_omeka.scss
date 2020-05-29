@@ -47,17 +47,9 @@ select {
 }
 
 #content {
-  padding: (2 * $global-padding) $global-padding;
-
-  @include breakpoint(small down) {
-    padding: 0;
-    margin: $global-margin;
-  }
-}
-
-body:not(.browse) #content {
   @include xy-grid-container;
-  padding: (2 * $global-padding) 0;  
+  padding: (2 * $global-padding) 0; 
+  margin-top:(1.375 * $global-margin) ;
 
   @include breakpoint(small down) {
     padding: 0;
@@ -168,6 +160,9 @@ header .top-bar-left {
 }
 
 header .top-bar {
+  @include xy-grid-container;
+  padding: (2 * $global-padding); 
+
   @include breakpoint(small down) {
     padding: 0;    
   }
@@ -249,9 +244,6 @@ body.vertical-menu header .desktop {
 // #. Footer
 // ------------------
 footer {
-  @include xy-grid-container;
-  padding: (2 * $global-padding) 0;
-  
   @include breakpoint(small down) {
     margin: 0 $global-margin;
   }

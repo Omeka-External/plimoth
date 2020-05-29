@@ -1,5 +1,6 @@
 (function($) {
     $(document).ready(function() {
+        
         $('.layout-toggle button').click(function() {
             $('.layout-toggle button:disabled').removeAttr('disabled');
             $(this).attr('disabled', true);
