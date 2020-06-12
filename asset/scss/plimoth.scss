@@ -25,7 +25,11 @@ header, .top-bar, .top-bar ul {
 }
 
 footer {
-     background-color: $black;
+     background-color: $navy;
+     color:$white;
+     a {
+         color:$white;
+     }
 }
 
 .footer-content {
@@ -53,10 +57,24 @@ header {
     }
 }
 
+.home #content {
+    background-image: url("../img/plimothHero.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height:798.4962px;
+}
+
 .home-list {
     @include breakpoint(medium){
         @include xy-cell(6);
+        margin-bottom:0;
     }
+    padding:1rem;
+    text-align: center;
+    background-color:rgba(231, 239, 237, 0.8) ;
+    margin-bottom:1rem;
+    
     a {
         float:left;
         width:50%;
@@ -96,7 +114,7 @@ button, [type="button"] {
 }
 
 .menu li a:hover {
-    background:$secondary-color;
+    background:$off-white;
 }
 
 .menu .active > a, .toc-block > ul .active > a, .toc-block ul ul .active > a {
@@ -105,7 +123,7 @@ button, [type="button"] {
 }
 
 body.theme .menu .active > a.themes, body.time-periods .menu .active > a.periods {
-    border-bottom:5px solid $primary-color;
+    border-bottom:1rem solid $secondary-color;
 }
 
 .menu a.plimoth:after {

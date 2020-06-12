@@ -243,11 +243,6 @@ body.vertical-menu header .desktop {
 
 // #. Footer
 // ------------------
-footer {
-  @include breakpoint(small down) {
-    margin: 0 $global-margin;
-  }
-}
 
 body.vertical-menu footer {
   background-color: $white;

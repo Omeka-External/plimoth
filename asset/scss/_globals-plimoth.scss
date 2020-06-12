@@ -1,21 +1,23 @@
 @import "util/util";
 
 $global-font-size: 100%;
-$global-width: rem-calc(1250);
+$global-width: rem-calc(1200);
 $global-lineheight: 1.5;
 $foundation-palette: (
-  primary: #8a0f27,
-  secondary: #f0efe8,
+  primary: #479978,
+  secondary: #8da445,
   success: #3adb76,
   warning: #ffae00,
   alert: #cc4b37,
 );
+$navy: #314757;
 $light-gray: #e6e6e6;
 $medium-gray: #cacaca;
 $dark-gray: #8a8a8a;
 $black: #424242;
 $white: #ffffff;
-$body-background: $black;
+$off-white: #f0efe8;
+$body-background: $navy;
 $body-font-color: $black;
 $body-font-family: 'Quattrocento Sans', sans-serif;
 $body-antialiased: true;
