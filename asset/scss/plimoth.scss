@@ -6,7 +6,16 @@
 @import 'foundation-core';
 @import 'omeka';
 
+// General
+ul {
+    list-style-type: none;
+}
+
 //Type
+h1,h2,h3,h4,h5 {
+    font-family: 'DM Serif Display', serif;
+}
+
 .resource-meta h2 {
     line-height: 1;
 }
@@ -57,6 +66,12 @@ header {
     }
 }
 
+#intro p {
+    padding:1rem;
+    background-color:rgba(231, 239, 237, 0.8) ;
+    margin-bottom:1rem;
+}
+
 .home #content {
     background-image: url("../img/plimothHero.jpg");
     background-position: center center;
@@ -74,14 +89,19 @@ header {
     text-align: center;
     background-color:rgba(231, 239, 237, 0.8) ;
     margin-bottom:1rem;
-    
-    a {
-        float:left;
-        width:50%;
+
+    li a {
+        font-size:1.25rem;
     }
+    
     h2 a {
         width:100%;
     }
+}
+
+.list-columns {
+    column-count:2;
+    // column-width: 50%;
 }
 
 //General

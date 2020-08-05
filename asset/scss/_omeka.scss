@@ -153,8 +153,7 @@ body.vertical-menu #user-bar ~ #content {
   margin: $global-margin;
 }
 
-header .top-bar-right,
-header .top-bar-left {
+header .top-bar-right {
   display: flex;
   align-items: center;
 }
@@ -165,6 +164,14 @@ header .top-bar {
 
   @include breakpoint(small down) {
     padding: 0;    
+  }
+}
+
+.top-bar .top-bar-left {
+  max-width:45%;
+
+  h1 {
+    font-size:1.25rem;
   }
 }
 
