@@ -105,6 +105,10 @@ header {
 .list-columns {
     column-count:2;
     // column-width: 50%;
+
+    li {
+        break-inside: avoid-column;
+    }
 }
 
 //General
