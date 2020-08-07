@@ -92,7 +92,7 @@ header {
     text-align: center;
     background-color:rgba(231, 239, 237, 0.8) ;
     margin-bottom:1rem;
-
+    width:100%;
     li a {
         font-size:1.25rem;
     }
@@ -103,11 +103,15 @@ header {
 }
 
 .list-columns {
-    column-count:2;
-    // column-width: 50%;
+    @include breakpoint(medium up) {
+        column-count:2;
+        column-width: 50%;
+        column-fill: balance;
 
-    li {
-        break-inside: avoid-column;
+        li {
+            break-inside: avoid-column;
+            display: inline-block;
+        }
     }
 }
 
