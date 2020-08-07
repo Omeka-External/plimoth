@@ -65,11 +65,12 @@ header {
         @include xy-cell-offset(2);
     }
     text-align: center;
+    background-color:rgba(231, 239, 237, 0.8) ;
+    padding:1rem;
+
 }
 
 #intro p {
-    padding:1rem;
-    background-color:rgba(231, 239, 237, 0.8) ;
     font-size:.9rem;
     text-align:left;
 }
