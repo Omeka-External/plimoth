@@ -154,6 +154,10 @@ body.theme .menu .active > a.themes, body.time-periods .menu .active > a.periods
     border-bottom:1rem solid $secondary-color;
 }
 
+.menu a.plimoth {
+    margin-top:-2px;
+}
+
 .menu a.plimoth:after {
     font-family: 'Font Awesome 5 Free';
     content: "\f35d";
