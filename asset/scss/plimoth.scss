@@ -167,3 +167,12 @@ body.theme .menu .active > a.themes, body.time-periods .menu .active > a.periods
     content: "\f35d";
 }
 
+
+// Item Browse
+.browse .resource-image {
+    cursor: pointer;
+
+    h3 {
+        color:$secondary-color;
+    }
+}
